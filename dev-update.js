@@ -3,8 +3,11 @@ const Moralis = require('moralis/node');
 
 // // Main
 
-const serverUrl ='https://qais2ihqdvv5.usemoralis.com:2053/server';
-const appId = 'cFpCVtf3aTyfNn8ksqyuXlKpuW3XJB19BhXxhRcl';
+// const serverUrl ='https://qais2ihqdvv5.usemoralis.com:2053/server';
+// const appId = 'cFpCVtf3aTyfNn8ksqyuXlKpuW3XJB19BhXxhRcl';
+const serverUrl ='https://wdetopfpy4ri.usemoralis.com:2053/server';
+const appId = 'L1CRfUFFtqF9frxkvkXVZ07MwkdksUXrAWq99gpE';
+
 
 // My ...................
 // const serverUrl ='https://wdetopfpy4ri.usemoralis.com:2053/server';
@@ -152,7 +155,7 @@ async function generateRarity(){
                rarityScore: rarityScoreNull,
            });
            totalRarity += rarityScoreNull;
-    //console.log(current)
+    console.log(current)
            
        });
 
@@ -169,7 +172,7 @@ async function generateRarity(){
               allNFTs[j].image = resolveLink(data.image);
             });
         } catch (error) {
-          // console.log(error);
+          console.log(error);
         }
       }
   

@@ -1,7 +1,7 @@
 const Moralis = require('moralis/node');
 
-const serverUrl ='https://qais2ihqdvv5.usemoralis.com:2053/server';
-const appId = 'cFpCVtf3aTyfNn8ksqyuXlKpuW3XJB19BhXxhRcl';
+const serverUrl ='https://wdetopfpy4ri.usemoralis.com:2053/server';
+const appId = 'L1CRfUFFtqF9frxkvkXVZ07MwkdksUXrAWq99gpE';
 Moralis.start({serverUrl,appId});
 
 const resolveLink = (url) => {
@@ -58,7 +58,7 @@ async function generateRarity(){
     //console.log("metadata" , metadata);
 
 
-    let tally = { TraitCount: {} };
+    let tally = { "TraitCount": {} };
 
     for (var j = 0; j < metadata.length; j++) {
         if (typeof(metadata[j]) !== 'undefined') {
@@ -116,9 +116,6 @@ async function generateRarity(){
         current[i].rarityScore = rarityScore;
         //console.log("after current",i,typeof(current));
         }
-
-
-        
     let rarityScoreNumTraits =
     1 / (tally.TraitCount[Object.keys(current).length] /totalNum) ;
     current.push({
@@ -171,6 +168,7 @@ async function generateRarity(){
 }
 
 nftArr.sort((a, b) => b.Rarity - a.Rarity);
+
 for(let i = 0; i < nftArr.length; i++){
 nftArr[i].Rank = i + 1;
 const newClass = Moralis.Object.extend(tableName) ;
