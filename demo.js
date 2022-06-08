@@ -40,6 +40,7 @@ async function generateRarity(){
     }
 
     let metadata = allNFTs.map((e) => JSON.parse(e.metadata).attributes);
+
     // console.log(metadata[0]);
 
     let tally = { "TraitCount": {}};
@@ -152,7 +153,6 @@ async function generateRarity(){
         nftArr[i].Rank = i + 1;
         const newClass = Moralis.Object.extend(collectionName);
         const newObject = new newClass();
-
         newObject.set("attributes", nftArr[i].Attributes);
         newObject.set("rarity", nftArr[i].Rarity);
         newObject.set("tokenId", nftArr[i].token_id);
