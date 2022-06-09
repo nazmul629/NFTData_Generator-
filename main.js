@@ -23,8 +23,8 @@ const chain = "ETH"
 const tableName = "RarityGenerator"
 
 
-const collectionAddress = "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"
-const collectionName = "Bored Ape Yacht Club"
+const collectionAddress = "0x60E4d786628Fea6478F785A6d7e704777c86a7c6"
+const collectionName = "Mutant Ape Yacht Club"
 
 
 
@@ -106,7 +106,8 @@ async function generateRarity(){
                 current[i].rarityScore = rarityScore;
                 totalRarity+=rarityScore;
              }
-             let rarityScoreNumTraits = 1 / (tally.TraitCount[Object.keys(current).length] /totalNum) ;
+             let rarityScoreNumTraits =
+             8 * (1 / (tally.TraitCount[Object.keys(current).length] / totalNum));
             current.push({
                 trait_type: "TraitCount" ,
                 value: Object.keys(current).length,
