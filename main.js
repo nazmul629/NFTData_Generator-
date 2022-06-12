@@ -3,9 +3,6 @@ const Moralis = require("moralis/node");
 const serverUrl = "https://2tnbvikpjw79.usemoralis.com:2053/server"
 const appId = "nlC1dYR26lS8EBL3Pk0QIQtsfK2Bg1DWAPAdvuqC";
 
-// const serverUrl = "https://wdetopfpy4ri.usemoralis.com:2053/server"; //Moralis Server Url here
-// const appId = "L1CRfUFFtqF9frxkvkXVZ07MwkdksUXrAWq99gpE"; //Moralis Server App ID here
-
 Moralis.start({ serverUrl, appId });
 
 
@@ -22,19 +19,16 @@ const tableNFTAdd = "NFTAddress"
 const chain = "ETH"
 const tableName = "RarityGenerator"
 
-
-const collectionAddress = "0x60E4d786628Fea6478F785A6d7e704777c86a7c6"
-const collectionName = "Mutant Ape Yacht Club"
-
-
+const collectionAddress = "0xd151BbC88DB8A7803a2ca7a9722037aBdAca9B8e"
+const collectionName = "Wild Goat Gang"
 
 async function generateRarity(){
     const NFTs = await Moralis.Web3API.token.getAllTokenIds({address:collectionAddress});
     // console.log(NFTs.block_number_minted)
     const totalNum = NFTs.total;
     const pageSize = NFTs.page_size;
-    // console.log(totalNum);
-    // console.log(pageSize);
+    console.log(totalNum);
+    console.log(pageSize);
     let allNFTs = NFTs.result
     // console.log(allNFTs);
 
@@ -46,7 +40,7 @@ async function generateRarity(){
     while (result1.next){
         result1 = await result1.next()
         allNFTs = allNFTs.concat(result1.result)
-        await timer(6000);
+        await timer(7000);
         console.log(allNFTs);
     }
 
@@ -157,7 +151,7 @@ async function generateRarity(){
 
         }
     } 
-    // console.log(metadata[0]);
+    console.log(metadata[0]);
     // console.log(nftArr);
 
     nftArr.sort((a, b) => b.Rarity - a.Rarity);
@@ -186,10 +180,7 @@ async function generateRarity(){
         NFTContract.set("Chain", chain);
         await NFTContract.save();   
     
-
-
-
-
-}
+    
+    }
 
 generateRarity()
